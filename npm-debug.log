@@ -1,0 +1,160 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'materialize-css',
+1 verbose cli   '--save' ]
+2 info using npm@4.1.2
+3 info using node@v7.6.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData materialize-css
+8 silly fetchNamedPackageData materialize-css
+9 silly mapToRegistry name materialize-css
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'materialize-css',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'materialize-css',
+12 silly mapToRegistry   name: 'materialize-css',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/materialize-css
+14 verbose request uri https://registry.npmjs.org/materialize-css
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 10:46:55 AM
+17 verbose request id 537c759cd0d37ed9
+18 verbose etag W/"58d1bc86-63ea"
+19 verbose lastModified Tue, 21 Mar 2017 23:51:34 GMT
+20 http request GET https://registry.npmjs.org/materialize-css
+21 http 200 https://registry.npmjs.org/materialize-css
+22 verbose headers { server: 'nginx/1.10.1',
+22 verbose headers   'content-type': 'application/json',
+22 verbose headers   'last-modified': 'Wed, 22 Mar 2017 19:50:43 GMT',
+22 verbose headers   etag: 'W/"58d2d593-63f8"',
+22 verbose headers   'content-encoding': 'gzip',
+22 verbose headers   'cache-control': 'max-age=300',
+22 verbose headers   'content-length': '4099',
+22 verbose headers   'accept-ranges': 'bytes',
+22 verbose headers   date: 'Thu, 23 Mar 2017 07:47:17 GMT',
+22 verbose headers   via: '1.1 varnish',
+22 verbose headers   age: '137',
+22 verbose headers   connection: 'keep-alive',
+22 verbose headers   'x-served-by': 'cache-lcy1131-LCY',
+22 verbose headers   'x-cache': 'HIT',
+22 verbose headers   'x-cache-hits': '1',
+22 verbose headers   'x-timer': 'S1490255237.424294,VS0,VE0',
+22 verbose headers   vary: 'Accept-Encoding' }
+23 silly get cb [ 200,
+23 silly get   { server: 'nginx/1.10.1',
+23 silly get     'content-type': 'application/json',
+23 silly get     'last-modified': 'Wed, 22 Mar 2017 19:50:43 GMT',
+23 silly get     etag: 'W/"58d2d593-63f8"',
+23 silly get     'content-encoding': 'gzip',
+23 silly get     'cache-control': 'max-age=300',
+23 silly get     'content-length': '4099',
+23 silly get     'accept-ranges': 'bytes',
+23 silly get     date: 'Thu, 23 Mar 2017 07:47:17 GMT',
+23 silly get     via: '1.1 varnish',
+23 silly get     age: '137',
+23 silly get     connection: 'keep-alive',
+23 silly get     'x-served-by': 'cache-lcy1131-LCY',
+23 silly get     'x-cache': 'HIT',
+23 silly get     'x-cache-hits': '1',
+23 silly get     'x-timer': 'S1490255237.424294,VS0,VE0',
+23 silly get     vary: 'Accept-Encoding' } ]
+24 verbose get saving materialize-css to /home/rayan/.npm/registry.npmjs.org/materialize-css/.cache.json
+25 verbose correctMkdir /home/rayan/.npm correctMkdir not in flight; initializing
+26 silly install normalizeTree
+27 silly loadCurrentTree Finishing
+28 silly loadIdealTree Starting
+29 silly install loadIdealTree
+30 silly cloneCurrentTree Starting
+31 silly install cloneCurrentTreeToIdealTree
+32 silly cloneCurrentTree Finishing
+33 silly loadShrinkwrap Starting
+34 silly install loadShrinkwrap
+35 silly loadShrinkwrap Finishing
+36 silly loadAllDepsIntoIdealTree Starting
+37 silly install loadAllDepsIntoIdealTree
+38 silly resolveWithNewModule materialize-css@0.98.1 checking installable status
+39 silly cache add args [ 'materialize-css', null ]
+40 verbose cache add spec materialize-css
+41 silly cache add parsed spec Result {
+41 silly cache add   raw: 'materialize-css',
+41 silly cache add   scope: null,
+41 silly cache add   escapedName: 'materialize-css',
+41 silly cache add   name: 'materialize-css',
+41 silly cache add   rawSpec: '',
+41 silly cache add   spec: 'latest',
+41 silly cache add   type: 'tag' }
+42 silly addNamed materialize-css@latest
+43 verbose addNamed "latest" is being treated as a dist-tag for materialize-css
+44 info addNameTag [ 'materialize-css', 'latest' ]
+45 silly mapToRegistry name materialize-css
+46 silly mapToRegistry using default registry
+47 silly mapToRegistry registry https://registry.npmjs.org/
+48 silly mapToRegistry data Result {
+48 silly mapToRegistry   raw: 'materialize-css',
+48 silly mapToRegistry   scope: null,
+48 silly mapToRegistry   escapedName: 'materialize-css',
+48 silly mapToRegistry   name: 'materialize-css',
+48 silly mapToRegistry   rawSpec: '',
+48 silly mapToRegistry   spec: 'latest',
+48 silly mapToRegistry   type: 'tag' }
+49 silly mapToRegistry uri https://registry.npmjs.org/materialize-css
+50 verbose addNameTag registry:https://registry.npmjs.org/materialize-css not in flight; fetching
+51 verbose get https://registry.npmjs.org/materialize-css not expired, no request
+52 silly addNameTag next cb for materialize-css with tag latest
+53 silly addNamed materialize-css@0.98.1
+54 verbose addNamed "0.98.1" is a plain semver version for materialize-css
+55 silly mapToRegistry name materialize-css
+56 silly mapToRegistry using default registry
+57 silly mapToRegistry registry https://registry.npmjs.org/
+58 silly mapToRegistry data Result {
+58 silly mapToRegistry   raw: 'materialize-css',
+58 silly mapToRegistry   scope: null,
+58 silly mapToRegistry   escapedName: 'materialize-css',
+58 silly mapToRegistry   name: 'materialize-css',
+58 silly mapToRegistry   rawSpec: '',
+58 silly mapToRegistry   spec: 'latest',
+58 silly mapToRegistry   type: 'tag' }
+59 silly mapToRegistry uri https://registry.npmjs.org/materialize-css
+60 verbose addRemoteTarball https://registry.npmjs.org/materialize-css/-/materialize-css-0.98.1.tgz not in flight; adding
+61 verbose addRemoteTarball [ 'https://registry.npmjs.org/materialize-css/-/materialize-css-0.98.1.tgz',
+61 verbose addRemoteTarball   '7276895b2c998b53e26deaa0c23a0484c0851d99' ]
+62 info retry fetch attempt 1 at 10:47:19 AM
+63 info attempt registry request try #1 at 10:47:19 AM
+64 http fetch GET https://registry.npmjs.org/materialize-css/-/materialize-css-0.98.1.tgz
+65 http fetch 200 https://registry.npmjs.org/materialize-css/-/materialize-css-0.98.1.tgz
+66 silly fetchAndShaCheck shasum 7276895b2c998b53e26deaa0c23a0484c0851d99
+67 silly rollbackFailedOptional Starting
+68 silly rollbackFailedOptional Finishing
+69 silly runTopLevelLifecycles Finishing
+70 silly install printInstalled
+71 verbose stack Error: shasum check failed for /tmp/npm-12343-36bab354/registry.npmjs.org/materialize-css/-/materialize-css-0.98.1.tgz
+71 verbose stack Expected: 7276895b2c998b53e26deaa0c23a0484c0851d99
+71 verbose stack Actual:   46ac08cf32c820b9b8a8c5de63714efcc0b703af
+71 verbose stack From:     https://registry.npmjs.org/materialize-css/-/materialize-css-0.98.1.tgz
+71 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/sha/index.js:25:8
+71 verbose stack     at ReadStream.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/sha/index.js:72:7)
+71 verbose stack     at emitNone (events.js:91:20)
+71 verbose stack     at ReadStream.emit (events.js:186:7)
+71 verbose stack     at endReadableNT (_stream_readable.js:974:12)
+71 verbose stack     at _combinedTickCallback (internal/process/next_tick.js:74:11)
+71 verbose stack     at process._tickCallback (internal/process/next_tick.js:98:9)
+72 verbose cwd /home/rayan/Desktop/projectfolder/tenders
+73 error Linux 4.4.0-36-generic
+74 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "materialize-css" "--save"
+75 error node v7.6.0
+76 error npm  v4.1.2
+77 error shasum check failed for /tmp/npm-12343-36bab354/registry.npmjs.org/materialize-css/-/materialize-css-0.98.1.tgz
+77 error Expected: 7276895b2c998b53e26deaa0c23a0484c0851d99
+77 error Actual:   46ac08cf32c820b9b8a8c5de63714efcc0b703af
+77 error From:     https://registry.npmjs.org/materialize-css/-/materialize-css-0.98.1.tgz
+78 error If you need help, you may report this error at:
+78 error     <https://github.com/npm/npm/issues>
+79 verbose exit [ 1, true ]
