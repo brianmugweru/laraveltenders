@@ -39,9 +39,8 @@ class UserController extends Controller
       $data['password'] = bcrypt($data['password']);
       $user = User::create($data);
       if($user){
-        dd($user);
         \Auth::login($user);
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
       }
       return back()->withInput();
     }
