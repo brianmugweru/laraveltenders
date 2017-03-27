@@ -15,13 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function(){
-  return view('login');
+Route::group(['middleware' => ['web']], function(){
+  Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@login']);
+  Route::post('/auth/login', ['as'=>'handlelogin', 'uses'=>'AuthController@handlelogin']);
+  Route::resource('users', 'UserController', ['only'=>['create', 'store']]); 
 });
 
-Route::get('/signup', function(){
-  return view('signup');
-});
 
 Route::get('/dashboard', function(){
   return view('dashboard');
