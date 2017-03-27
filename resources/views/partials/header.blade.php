@@ -6,6 +6,7 @@
               <li><a href="#">Bid Opportunities</a></li>
                 <!--@if (Route::has('login'))
                   @if (Auth::check())-->
+                    <li><a href="{{url('/logout') }}">logout</a></li>
                   <!--@else-->
                     <li><a href="{{url('/login') }}">login</a></li>
                     <li><a href="{{url('/users/create') }}" class="btn">register</a></li>
