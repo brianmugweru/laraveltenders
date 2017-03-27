@@ -9,8 +9,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link href="css/materialize.css" type="text/css" rel="stylesheet" />
-        <link href="css/styles.css" type="text/css" rel="stylesheet" />
+        <link href="{{ URL::asset('css/materialize.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ URL::asset('css/styles.css') }}" type="text/css" rel="stylesheet" />
 
         <!-- Styles -->
    </head>
