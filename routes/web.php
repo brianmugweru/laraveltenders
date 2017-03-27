@@ -24,4 +24,4 @@ Route::group(['middleware' => ['web']], function(){
 
 Route::get('/dashboard', function(){
   return view('dashboard');
-});
+})->middleware('auth');
