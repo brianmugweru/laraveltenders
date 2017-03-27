@@ -35,10 +35,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-      $data = $request->only('firstname','lastname','pnumber','email','password','company','address','city','province','country');
+      $data = $request->only('firstname','lastname','phonenumber','email','password','companyname','address','city','province','country');
       $data['password'] = bcrypt($data['password']);
       $user = User::create($data);
       if($user){
+        dd($user);
         \Auth::login($user);
         return redirect()->route('home');
       }
