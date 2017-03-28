@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
+use Session;
+use Redirect;
+use View;
 use Illuminate\Http\Request;
 use App\Tender;
 
@@ -14,8 +18,8 @@ class TendersController extends Controller
      */
     public function index()
     {
-      $tenders = App\Tender::all();
-      return View::make('welcome')->with('tenders',$tenders);
+      $tenders = Tender::all();
+      return view::make('welcome')->with('tenders',$tenders);
     }
 
     /**
@@ -37,7 +41,26 @@ class TendersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $rules = array(
+        'bid_name'=>'required',
+        'closing'=>'required',
+        'description'=>'required'
+      );
+
+      $validator = Validator::make($request->all(), $rules);
+
+      if($validator -> fails()){
+        return Redirect::to('dashboard')->withErrors($validator)->withInput();
+      }else{
+        $tender = new Tender;
+        $tender->bid_name = $request->get('bid_name');
+        $tender->closing_on = $request->get('closing');
+        $tender->description = $request->get('description');
+        $tender->save();
+
+        Session::flash('message', 'Tender created successfully');
+        return Redirect::to('dashboard');
+      }
     }
 
     /**
