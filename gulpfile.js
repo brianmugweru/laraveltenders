@@ -19,6 +19,11 @@ elixir(mix => {
 });
 
 elixir(mix => {
+  mix.copy('resources/assets/bower/materialize/js/date_picker/picker.js', './public/js/materialdate.js');
+});
+
+
+elixir(mix => {
   mix.copy('resources/assets/bower/materialize/js/forms.js', './public/js/materialforms.js');
 });
 
