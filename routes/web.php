@@ -18,7 +18,7 @@ Route::group(['middleware' => ['web']], function(){
   Route::post('/auth/login', ['as'=>'handlelogin', 'uses'=>'AuthController@handlelogin']);
   Route::post('/addtender', ['as'=>'addtender', 'uses'=>'TendersController@store']);
   Route::resource('users', 'UserController', ['only'=>['create', 'store']]); 
-  Route::resource('tenders', 'TendersController');
+  Route::resource('tenders', 'TendersController',['only'=>['create', 'store']]);
   Route::get('/dashboard', ['as'=>'dashboard', 'middleware'=>'admin', 'uses'=>'TendersController@create']);
   Route::get('logout', ['as'=>'logout', 'uses'=>'AuthController@logout']);
 });
