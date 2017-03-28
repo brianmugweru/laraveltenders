@@ -11,6 +11,17 @@ use App\Tender;
 
 class TendersController extends Controller
 {
+
+    /**
+     * Instantiate a new controller instance
+     *
+     * @return  void
+     */
+
+    public function __construct()
+    {
+        $this->middleware('auth')->only('show');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -71,7 +82,8 @@ class TendersController extends Controller
      */
     public function show($id)
     {
-        //
+      $tender = Tender::find($id);
+      return View::make('tender')->with('tender', $tender);
     }
 
     /**
