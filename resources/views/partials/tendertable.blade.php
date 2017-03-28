@@ -3,17 +3,21 @@
   <thead>
     <tr>
       <th>Bid Name</th>
-      <th>Status</th>
+      <th>Description</th>
       <th>Published Date</th>
       <th>Closing Date</th>
       <th>View/Register</th>
     </tr>
   </thead>
   <tbody>
-    <td>Bid Name</td>
-    <td>Status</td>
-    <td>Published Date</td>
-    <td>Closing Date</td>
-    <td>view/register</td>
-  </tbody>
+  @foreach($tenders as $tender)
+    <tr>
+      <td>{{ $tender->bid_name }}</td>
+      <td>{{ $tender->description }}</td>
+      <td>{{ $tender->created_at }}</td>
+      <td>{{ $tender->closing_on }}</td>
+      <td><a href="#">View</a></td>
+    </tr>
+  @endforeach
+ </tbody>
 </table>

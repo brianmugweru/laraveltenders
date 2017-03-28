@@ -1,11 +1,11 @@
 <table class="responsive-table">
   <thead>
     <tr>
+      <th>Bid id</th>
       <th>Bid Name</th>
-      <th>Status</th>
+      <th>Description</th>
       <th>Published Date</th>
       <th>Closing Date</th>
-      <th>created on</th>
       <th>View</th>
       <th>Delete</th>
     </tr>
@@ -13,11 +13,11 @@
   <tbody>
   @foreach($tenders as $tender)
     <tr>
-      <td>{{ $tender->Id }}</td>
+      <td>{{ $tender->id }}</td>
       <td>{{ $tender->bid_name }}</td>
       <td>{{ $tender->description }}</td>
-      <td>{{ $tender->closing_on }}</td>
       <td>{{ $tender->created_at }}</td>
+      <td>{{ $tender->closing_on }}</td>
       <td><a href="#">View</a></td>
       <td><a href="#">delete</a></td>
     </tr>
