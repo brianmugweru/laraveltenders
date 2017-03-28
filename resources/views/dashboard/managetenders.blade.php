@@ -5,16 +5,22 @@
       <th>Status</th>
       <th>Published Date</th>
       <th>Closing Date</th>
+      <th>created on</th>
       <th>View</th>
       <th>Delete</th>
     </tr>
   </thead>
   <tbody>
-    <td>Bid Name</td>
-    <td>Status</td>
-    <td>Published Date</td>
-    <td>Closing Date</td>
-    <td><a href="#">View</a></td>
-    <td><a href="#">delete</a></td>
+  @foreach($tenders as $tender)
+    <tr>
+      <td>{{ $tender->Id }}</td>
+      <td>{{ $tender->bid_name }}</td>
+      <td>{{ $tender->description }}</td>
+      <td>{{ $tender->closing_on }}</td>
+      <td>{{ $tender->created_at }}</td>
+      <td><a href="#">View</a></td>
+      <td><a href="#">delete</a></td>
+    </tr>
+  @endforeach
   </tbody>
 </table>
