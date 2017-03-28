@@ -16,12 +16,16 @@ Route::group(['middleware' => ['web']], function(){
   Route::get('/', ['as' => 'home', 'uses' => 'TendersController@index']);
   Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@login']);
   Route::post('/auth/login', ['as'=>'handlelogin', 'uses'=>'AuthController@handlelogin']);
+  Route::post('/addtender', ['as'=>'addtender', 'uses'=>'TendersController@store']);
   Route::resource('users', 'UserController', ['only'=>['create', 'store']]); 
+  Route::resource('tenders', 'TendersController');
+  Route::get('/dashboard', ['as'=>'dashboard', 'middleware'=>'admin', 'uses'=>'TendersController@create']);
   Route::get('logout', ['as'=>'logout', 'uses'=>'AuthController@logout']);
 });
 
-
-Route::get('/dashboard',['middleware' => 'admin', function(){
+/*
+Route::get('dashboard',['middleware' => 'admin', function(){
   return view('dashboard');
 }])->middleware('auth');
+ */
 
