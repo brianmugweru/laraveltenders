@@ -40,7 +40,7 @@ class UserController extends Controller
       $user = User::create($data);
       if($user){
         \Auth::login($user);
-        return redirect()->route('dashboard');
+        return redirect('dashboard')->with('status', 'authenticated successfully');
       }
       return back()->withInput();
     }

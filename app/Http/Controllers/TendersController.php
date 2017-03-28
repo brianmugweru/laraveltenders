@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Tender;
 
 class TendersController extends Controller
 {
@@ -13,7 +14,8 @@ class TendersController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+      $tenders = App\Tender::all();
+      return View::make('welcome')->with('tenders',$tenders);
     }
 
     /**
@@ -23,7 +25,8 @@ class TendersController extends Controller
      */
     public function create()
     {
-        //
+      $tenders = Tender::all();
+      return view('dashboard')->with('tenders',$tenders);
     }
 
     /**
