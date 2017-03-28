@@ -519,119 +519,6 @@ window.addEventListener('load', function() {
  * limitations under the License.
  */
 
-/**
- * Class constructor for Animation MDL component.
- * Implements MDL component design pattern defined at:
- * https://github.com/jasonmayes/mdl-component-design-pattern
- * @param {HTMLElement} element The element that will be upgraded.
- */
-function DemoAnimation(element) {
-  'use strict';
-
-  this.element_ = element;
-  this.position_ = this.Constant_.STARTING_POSITION;
-  this.movable_ = this.element_.querySelector('.' + this.CssClasses_.MOVABLE);
-  // Initialize instance.
-  this.init();
-}
-
-/**
- * Store strings for class names defined by this component that are used in
- * JavaScript. This allows us to simply change it in one place should we
- * decide to modify at a later date.
- * @enum {string}
- * @private
- */
-DemoAnimation.prototype.CssClasses_ = {
-  MOVABLE: 'demo-animation__movable',
-  POSITION_PREFIX: 'demo-animation--position-',
-  FAST_OUT_SLOW_IN: 'mdl-animation--fast-out-slow-in',
-  LINEAR_OUT_SLOW_IN: 'mdl-animation--linear-out-slow-in',
-  FAST_OUT_LINEAR_IN: 'mdl-animation--fast-out-linear-in'
-};
-
-/**
- * Store constants in one place so they can be updated easily.
- * @enum {string | number}
- * @private
- */
-DemoAnimation.prototype.Constant_ = {
-  STARTING_POSITION: 0,
-  // Which animation to use for which state. Check demo.css for an explanation.
-  ANIMATIONS: [
-    DemoAnimation.prototype.CssClasses_.FAST_OUT_LINEAR_IN,
-    DemoAnimation.prototype.CssClasses_.LINEAR_OUT_SLOW_IN,
-    DemoAnimation.prototype.CssClasses_.FAST_OUT_SLOW_IN,
-    DemoAnimation.prototype.CssClasses_.FAST_OUT_LINEAR_IN,
-    DemoAnimation.prototype.CssClasses_.LINEAR_OUT_SLOW_IN,
-    DemoAnimation.prototype.CssClasses_.FAST_OUT_SLOW_IN
-  ]
-};
-
-/**
- * Handle click of element.
- * @param {Event} event The event that fired.
- * @private
- */
-DemoAnimation.prototype.handleClick_ = function(event) {
-  'use strict';
-
-  this.movable_.classList.remove(this.CssClasses_.POSITION_PREFIX +
-      this.position_);
-  this.movable_.classList.remove(this.Constant_.ANIMATIONS[this.position_]);
-
-  this.position_++;
-  if (this.position_ > 5) {
-    this.position_ = 0;
-  }
-
-  this.movable_.classList.add(this.Constant_.ANIMATIONS[this.position_]);
-  this.movable_.classList.add(this.CssClasses_.POSITION_PREFIX +
-      this.position_);
-};
-
-/**
- * Initialize element.
- */
-DemoAnimation.prototype.init = function() {
-  'use strict';
-
-  if (this.element_) {
-    if (!this.movable_) {
-      console.error('Was expecting to find an element with class name ' +
-          this.CssClasses_.MOVABLE + ' inside of: ', this.element_);
-      return;
-    }
-
-    this.element_.addEventListener('click', this.handleClick_.bind(this));
-  }
-};
-
-// The component registers itself. It can assume componentHandler is available
-// in the global scope.
-componentHandler.register({
-  constructor: DemoAnimation,
-  classAsString: 'DemoAnimation',
-  cssClass: 'demo-js-animation'
-});
-
-/**
- * @license
- * Copyright 2015 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 (function() {
   'use strict';
 
@@ -1008,6 +895,119 @@ componentHandler.register({
     widget: true
   });
 })();
+
+/**
+ * @license
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Class constructor for Animation MDL component.
+ * Implements MDL component design pattern defined at:
+ * https://github.com/jasonmayes/mdl-component-design-pattern
+ * @param {HTMLElement} element The element that will be upgraded.
+ */
+function DemoAnimation(element) {
+  'use strict';
+
+  this.element_ = element;
+  this.position_ = this.Constant_.STARTING_POSITION;
+  this.movable_ = this.element_.querySelector('.' + this.CssClasses_.MOVABLE);
+  // Initialize instance.
+  this.init();
+}
+
+/**
+ * Store strings for class names defined by this component that are used in
+ * JavaScript. This allows us to simply change it in one place should we
+ * decide to modify at a later date.
+ * @enum {string}
+ * @private
+ */
+DemoAnimation.prototype.CssClasses_ = {
+  MOVABLE: 'demo-animation__movable',
+  POSITION_PREFIX: 'demo-animation--position-',
+  FAST_OUT_SLOW_IN: 'mdl-animation--fast-out-slow-in',
+  LINEAR_OUT_SLOW_IN: 'mdl-animation--linear-out-slow-in',
+  FAST_OUT_LINEAR_IN: 'mdl-animation--fast-out-linear-in'
+};
+
+/**
+ * Store constants in one place so they can be updated easily.
+ * @enum {string | number}
+ * @private
+ */
+DemoAnimation.prototype.Constant_ = {
+  STARTING_POSITION: 0,
+  // Which animation to use for which state. Check demo.css for an explanation.
+  ANIMATIONS: [
+    DemoAnimation.prototype.CssClasses_.FAST_OUT_LINEAR_IN,
+    DemoAnimation.prototype.CssClasses_.LINEAR_OUT_SLOW_IN,
+    DemoAnimation.prototype.CssClasses_.FAST_OUT_SLOW_IN,
+    DemoAnimation.prototype.CssClasses_.FAST_OUT_LINEAR_IN,
+    DemoAnimation.prototype.CssClasses_.LINEAR_OUT_SLOW_IN,
+    DemoAnimation.prototype.CssClasses_.FAST_OUT_SLOW_IN
+  ]
+};
+
+/**
+ * Handle click of element.
+ * @param {Event} event The event that fired.
+ * @private
+ */
+DemoAnimation.prototype.handleClick_ = function(event) {
+  'use strict';
+
+  this.movable_.classList.remove(this.CssClasses_.POSITION_PREFIX +
+      this.position_);
+  this.movable_.classList.remove(this.Constant_.ANIMATIONS[this.position_]);
+
+  this.position_++;
+  if (this.position_ > 5) {
+    this.position_ = 0;
+  }
+
+  this.movable_.classList.add(this.Constant_.ANIMATIONS[this.position_]);
+  this.movable_.classList.add(this.CssClasses_.POSITION_PREFIX +
+      this.position_);
+};
+
+/**
+ * Initialize element.
+ */
+DemoAnimation.prototype.init = function() {
+  'use strict';
+
+  if (this.element_) {
+    if (!this.movable_) {
+      console.error('Was expecting to find an element with class name ' +
+          this.CssClasses_.MOVABLE + ' inside of: ', this.element_);
+      return;
+    }
+
+    this.element_.addEventListener('click', this.handleClick_.bind(this));
+  }
+};
+
+// The component registers itself. It can assume componentHandler is available
+// in the global scope.
+componentHandler.register({
+  constructor: DemoAnimation,
+  classAsString: 'DemoAnimation',
+  cssClass: 'demo-js-animation'
+});
 
 /**
  * @license
@@ -4475,6 +4475,57 @@ componentHandler.register({
   });
 })();
 
+// Source: https://github.com/darius/requestAnimationFrame/blob/master/requestAnimationFrame.js
+// Adapted from https://gist.github.com/paulirish/1579671 which derived from
+// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+
+// requestAnimationFrame polyfill by Erik Möller.
+// Fixes from Paul Irish, Tino Zijdel, Andrew Mao, Klemen Slavič, Darius Bacon
+
+// MIT license
+
+(function() {
+  'use strict';
+
+  if (!Date.now) {
+    /**
+     * Date.now polyfill.
+     * @return {number} the current Date
+     */
+    Date.now = function() { return new Date().getTime(); };
+    Date['now'] = Date.now;
+  }
+
+  var vendors = ['webkit', 'moz'];
+  for (var i = 0; i < vendors.length && !window.requestAnimationFrame; ++i) {
+    var vp = vendors[i];
+    window.requestAnimationFrame = window[vp + 'RequestAnimationFrame'];
+    window.cancelAnimationFrame = (window[vp + 'CancelAnimationFrame'] ||
+        window[vp + 'CancelRequestAnimationFrame']);
+    window['requestAnimationFrame'] = window.requestAnimationFrame;
+    window['cancelAnimationFrame'] = window.cancelAnimationFrame;
+  }
+
+  if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent) || !window.requestAnimationFrame || !window.cancelAnimationFrame) {
+    var lastTime = 0;
+    /**
+     * requestAnimationFrame polyfill.
+     * @param  {!Function} callback the callback function.
+     */
+    window.requestAnimationFrame = function(callback) {
+      var now = Date.now();
+      var nextTime = Math.max(lastTime + 16, now);
+      return setTimeout(function() { callback(lastTime = nextTime); },
+                        nextTime - now);
+    };
+    window.cancelAnimationFrame = clearTimeout;
+    window['requestAnimationFrame'] = window.requestAnimationFrame;
+    window['cancelAnimationFrame'] = window.cancelAnimationFrame;
+  }
+
+})();
+
 /**
  * @license
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -4628,57 +4679,6 @@ componentHandler.register({
     classAsString: 'MaterialTooltip',
     cssClass: 'mdl-tooltip'
   });
-})();
-
-// Source: https://github.com/darius/requestAnimationFrame/blob/master/requestAnimationFrame.js
-// Adapted from https://gist.github.com/paulirish/1579671 which derived from
-// http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
-
-// requestAnimationFrame polyfill by Erik Möller.
-// Fixes from Paul Irish, Tino Zijdel, Andrew Mao, Klemen Slavič, Darius Bacon
-
-// MIT license
-
-(function() {
-  'use strict';
-
-  if (!Date.now) {
-    /**
-     * Date.now polyfill.
-     * @return {number} the current Date
-     */
-    Date.now = function() { return new Date().getTime(); };
-    Date['now'] = Date.now;
-  }
-
-  var vendors = ['webkit', 'moz'];
-  for (var i = 0; i < vendors.length && !window.requestAnimationFrame; ++i) {
-    var vp = vendors[i];
-    window.requestAnimationFrame = window[vp + 'RequestAnimationFrame'];
-    window.cancelAnimationFrame = (window[vp + 'CancelAnimationFrame'] ||
-        window[vp + 'CancelRequestAnimationFrame']);
-    window['requestAnimationFrame'] = window.requestAnimationFrame;
-    window['cancelAnimationFrame'] = window.cancelAnimationFrame;
-  }
-
-  if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent) || !window.requestAnimationFrame || !window.cancelAnimationFrame) {
-    var lastTime = 0;
-    /**
-     * requestAnimationFrame polyfill.
-     * @param  {!Function} callback the callback function.
-     */
-    window.requestAnimationFrame = function(callback) {
-      var now = Date.now();
-      var nextTime = Math.max(lastTime + 16, now);
-      return setTimeout(function() { callback(lastTime = nextTime); },
-                        nextTime - now);
-    };
-    window.cancelAnimationFrame = clearTimeout;
-    window['requestAnimationFrame'] = window.requestAnimationFrame;
-    window['cancelAnimationFrame'] = window.cancelAnimationFrame;
-  }
-
 })();
 
 //# sourceMappingURL=materialize.js.map
