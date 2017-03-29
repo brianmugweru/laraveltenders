@@ -16,7 +16,7 @@
 <p>closing Date: {{$tender->closing_on}}</p>
 <br>
 <div>
-  {!! Form::open(['url'=>'auth/login','method'=>'post','class'=>'col s12']) !!}
+  {!! Form::open(['route'=>'bids.store','method'=>'post','class'=>'col s12']) !!}
     <fieldset>
     <legend>Give it your best shot</legend>
     <div class="row">
