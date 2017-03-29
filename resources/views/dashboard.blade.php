@@ -8,6 +8,12 @@
 .tabs .tab a:hover, .tabs .tab a.active {
   color:#00695C;
 }
+footer{
+  position:absolute;
+  width:100%;
+  bottom:0;
+  left:0;
+}
 </style>
 <div class="row">
     <div class="col s12">
