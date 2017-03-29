@@ -27,6 +27,8 @@
     </div>
     <div class="row">
       <div class="input-field col s6">
+        <input type="hidden" name="user" value="{{ Auth::User()->id}}" />
+        <input type="hidden" name="tender" value="{{ $tender->id }}" />
         <input class="btn" type="submit" name="submit" value="Submit Bid">
       </div>
     </div>
