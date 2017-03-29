@@ -18,7 +18,7 @@
       <td>{{ $tender->description }}</td>
       <td>{{ $tender->created_at }}</td>
       <td>{{ $tender->closing_on }}</td>
-      <td><a href="#">View</a></td>
+      <td><a href="{{ URL::to('bids/'.$tender->id) }}">View</a></td>
       <td><a href="#">delete</a></td>
     </tr>
   @endforeach
