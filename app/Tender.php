@@ -11,6 +11,6 @@ class Tender extends Model
    */
     public function users()
     {
-        return $this->belongsToMany('App\Tender');
+        return $this->belongstomany('app\tender');
     }
 }
