@@ -30,4 +30,10 @@ class User extends Authenticatable
       'email' => 'required|exists:users',
       'password' => 'required'
     ];
+
+    public function tender()
+    {
+        return $this->belongsToMany('App\Tender')->using('App\Bid');
+    }
+
 }
