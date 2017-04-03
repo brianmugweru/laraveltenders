@@ -8,11 +8,23 @@
 }
 </style>
 <div class="row">
+  <div class="col s6 center">
+    <h5 class="left teal-text darken-4">Sign up Form</h5>
+@if(count($errors))
+  <div class="alert success">
+    <ul>
+      @foreach($errors->all() as $error)
+        <li>{{$error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+  </div>
 </div>
 <div class="row">
   <div class="col s12">
     {!! Form::open(array('route' => 'users.store'))  !!}
-      <h4>Organisation Details</h4>
+      <h5>Organisation Details</h5>
       <div class="row">
         <div class="input-field col s12">
           {!! Form::text('companyname', null, array('class'=>'validate','required')) !!}
@@ -37,7 +49,7 @@
           {!! Form::label('Country' ) !!}
         </div>
       </div>
-      <h4>Contacts</h4>
+      <h5>Contacts</h5>
       <div class="row">
         <div class="input-field col s6">
           <input id="firstname" type="text" name="firstname" class="validate" required>
