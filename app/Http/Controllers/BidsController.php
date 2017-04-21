@@ -11,6 +11,14 @@ use App\Bid;
 
 class BidsController extends Controller
 {
+    /*
+     * Controller to take care of authentication
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *

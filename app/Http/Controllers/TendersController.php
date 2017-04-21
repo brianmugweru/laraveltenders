@@ -8,6 +8,8 @@ use Redirect;
 use View;
 use Illuminate\Http\Request;
 use App\Tender;
+use App\Bid;
+use Illuminate\Support\Facades\Auth;
 
 class TendersController extends Controller
 {
@@ -83,6 +85,10 @@ class TendersController extends Controller
     public function show($id)
     {
       $tender = Tender::find($id);
+      $bid = Bid::where('tender_id',$id)->where('user_id', Auth::User()->id)->get();
+      if($bid){
+          return View::make('tender')->with('tender', $tender)->with('bid', $bid);
+      }
       return View::make('tender')->with('tender', $tender);
     }
 
