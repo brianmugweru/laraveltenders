@@ -35,6 +35,7 @@
     </fieldset>
 {!! Form::close() !!}
 </div>
+{{ $bid }}
 @include('partials.footer')
 @include('partials.footerscripts')
 
