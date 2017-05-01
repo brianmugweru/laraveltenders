@@ -7,9 +7,11 @@ use Session;
 use Redirect;
 use View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Tender;
 use App\Bid;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class TendersController extends Controller
 {
@@ -31,7 +33,7 @@ class TendersController extends Controller
      */
     public function index()
     {
-      $tenders = Tender::all();
+      $tenders = Tender::where('isBid','0')->paginate(3);
       return view::make('welcome')->with('tenders',$tenders);
     }
 
@@ -57,6 +59,7 @@ class TendersController extends Controller
       $rules = array(
         'bid_name'=>'required',
         'closing'=>'required',
+        'tender_file'=>'required',
         'description'=>'required'
       );
 
@@ -65,10 +68,12 @@ class TendersController extends Controller
       if($validator -> fails()){
         return Redirect::to('dashboard')->withErrors($validator)->withInput();
       }else{
+        $path = $request->file('tender_file')->store('tender_files');
         $tender = new Tender;
         $tender->bid_name = $request->get('bid_name');
         $tender->closing_on = $request->get('closing');
         $tender->description = $request->get('description');
+        $tender->tender_file = $path;
         $tender->save();
 
         Session::flash('message', 'Tender created successfully');
@@ -86,10 +91,10 @@ class TendersController extends Controller
     {
       $tender = Tender::find($id);
       $bid = Bid::where('tender_id',$id)->where('user_id', Auth::User()->id)->get();
-      if($bid){
+      if(sizeof($bid)>0)
           return View::make('tender')->with('tender', $tender)->with('bid', $bid);
-      }
-      return View::make('tender')->with('tender', $tender);
+      else
+          return View::make('tender')->with('tender', $tender);
     }
 
     /**
@@ -101,6 +106,21 @@ class TendersController extends Controller
     public function edit($id)
     {
         //
+    }
+
+    public function get($filename)
+    {
+        $entry = Tender::find($filename);
+        $files = $entry->tender_file;
+        if(empty($files)){
+          return(new Response('file not found', 404));
+        }
+        Storage::disk('local')->setVisibility($entry->tender_file,'public');
+        $file  = Storage::disk('local')->get($entry->tender_file);
+        $type = array('Content-Type'=>Storage::disk('local')->mimeType($entry->tender_file));
+        return(new Response($file, 200))->header('Content-Type', $type);
+        //return Response()->download($file,'newfile.png', $type);
+        //return(new Response()->download($file,'newfile', $type);
     }
 
     /**
