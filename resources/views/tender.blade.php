@@ -1,6 +1,10 @@
 @include('partials.masthead')
 @include('partials.header')
 <style>
+  table, p, h4{
+    margin-left:15px;
+    margin-right:15px;
+  }
   p{
     font-size:17px;
   }
@@ -15,6 +19,12 @@
 <p>Description: {{$tender->description}}</p>
 <p>closing Date: {{$tender->closing_on}}</p>
 <br>
+@if(isset($bid))
+  @foreach($bid as $bid)
+    <p>{{ $bid->tender->bid_name }}
+    Your Bid is : {{ $bid->bid }}</p>
+  @endforeach
+@else
 <div>
   {!! Form::open(['route'=>'bids.store','method'=>'post','class'=>'col s12']) !!}
     <fieldset>
@@ -22,7 +32,7 @@
     <div class="row">
       <div class="input-field col s6">
         <input id="bid" type="number" name="bid" class="validate">
-        <label for="bid">Enter Your Bid Bro</label>
+        <label for="bid">Enter Your Bid</label>
       </div>
     </div>
     <div class="row">
@@ -35,7 +45,7 @@
     </fieldset>
 {!! Form::close() !!}
 </div>
-{{ $bid }}
+@endif
 @include('partials.footer')
 @include('partials.footerscripts')
 
