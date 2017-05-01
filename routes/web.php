@@ -19,8 +19,9 @@ Route::group(['middleware' => ['web']], function(){
   Route::post('/addtender', ['as'=>'addtender', 'uses'=>'TendersController@store']);
   Route::resource('users', 'UserController', ['only'=>['create', 'store']]); 
   Route::resource('tenders', 'TendersController',['only'=>['create', 'store','show']]);
-  Route::resource('bids', 'BidsController',['only'=>['store','show']]);
+  Route::resource('bids', 'BidsController');
   Route::get('/dashboard', ['as'=>'dashboard', 'middleware'=>'admin', 'uses'=>'TendersController@create']);
   Route::get('logout', ['as'=>'logout', 'uses'=>'AuthController@logout']);
+  Route::get('tenderfiles/{filepath}', ['as'=>'getfile', 'uses'=>'TendersController@get' ]);
 });
 
