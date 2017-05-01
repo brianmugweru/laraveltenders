@@ -3,17 +3,12 @@
 <style>
 .tabs .tab a{
   text-align:left;
-  color:#4DB6AC;
+  color:#4db6ac;
 }
 .tabs .tab a:hover, .tabs .tab a.active {
-  color:#00695C;
+  color:#00695c;
 }
-footer{
-  position:absolute;
-  width:100%;
-  bottom:0;
-  left:0;
-}
+
 </style>
 <div class="row">
     <div class="col s12">
