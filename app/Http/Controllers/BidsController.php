@@ -8,6 +8,8 @@ use Redirect;
 use View;
 use Illuminate\Http\Request;
 use App\Bid;
+use App\Tender;
+use Illuminate\Support\Facades\Auth;
 
 class BidsController extends Controller
 {
@@ -26,7 +28,8 @@ class BidsController extends Controller
      */
     public function index()
     {
-        //
+        $bids = Bid::where('user_id', Auth::User()->id)->get();
+        return View::make('mybids')->with('bids',$bids);
     }
 
     /**
@@ -99,7 +102,15 @@ class BidsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $bid = Bid::find($id);
+        $tender = Tender::find($bid->tender_id);
+        $tender->isBid=1;
+        $bid->isSelected = 1;
+        $bid->save();
+        $tender->save();
+
+        Session::flash('message', 'bid selected successfully');
+        return Redirect::to('dashboard');
     }
 
     /**
