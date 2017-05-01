@@ -5,7 +5,7 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <!--@if (Route::has('login'))
                   @if (Auth::check())-->
-                    <li><a href="#">My Bids</a></li>
+                    <li><a href="{{URL::route('bids.index')}}">My Bids</a></li>
                     <li><a href="#">{{Auth::User()->firstname}} {{Auth::User()->lastname}}</a></li>
                     <li><a href="{{url('/logout') }}">logout</a></li>
                   <!--@else-->
