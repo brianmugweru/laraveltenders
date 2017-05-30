@@ -39,13 +39,13 @@ p{
       <td>{{ $bid->tender->bid_name }}</td>
       <td>{{ $bid->user->email }}</td>
       <td>{{ $bid->bid }}</td>
-    @if($bid->isSelected=0)
-      <td>
+    @if($bid->isSelected=1)
+      <!--<td>
         {!! Form::open(array('url'=>'bids/'.$bid->id)) !!}
           {!! Form::hidden('_method','PUT') !!}
           {!! Form::submit('Select Bid',array('class'=>'btn')) !!}
         {!! Form::close() !!}
-      </td>
+      </td>-->
     @else
         <td>Already assigned to {{ $bid->user->email }}</td>
     @endif
