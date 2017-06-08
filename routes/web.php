@@ -17,6 +17,7 @@ Route::group(['middleware' => ['web']], function(){
   Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@login']);
   Route::post('/auth/login', ['as'=>'handlelogin', 'uses'=>'AuthController@handlelogin']);
   Route::post('/addtender', ['as'=>'addtender', 'uses'=>'TendersController@store']);
+  Route::get('/activate/{email}/{code}',['as'=>'activateaccount','uses'=>'UserController@activate']);
   Route::resource('users', 'UserController', ['only'=>['create', 'store']]); 
   Route::resource('tenders', 'TendersController',['only'=>['create', 'store','show']]);
   Route::resource('bids', 'BidsController');
