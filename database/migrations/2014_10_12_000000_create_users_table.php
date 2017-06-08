@@ -25,6 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('province');
             $table->string('country');
+            $table->boolean('isActivated')->default(false);
+            $table->string('activationCode');
             $table->rememberToken();
             $table->timestamps();
         });
