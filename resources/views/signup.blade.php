@@ -10,24 +10,24 @@
 <div class="row">
   <div class="col s6 center">
     <h5 class="left teal-text darken-4">Sign up Form</h5>
-@if(count($errors))
-  <div class="alert success">
-    <ul>
-      @foreach($errors->all() as $error)
-        <li>{{$error }}</li>
-      @endforeach
-    </ul>
-  </div>
-@endif
-  </div>
+ </div>
 </div>
 <div class="row">
   <div class="col s12">
     {!! Form::open(array('route' => 'users.store'))  !!}
       <h5>Organisation Details</h5>
+      @if(count($errors))
+        <div class="alert success">
+          <ul>
+            @foreach($errors->all() as $error)
+              <li>{{$error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
       <div class="row">
         <div class="input-field col s12">
-          {!! Form::text('companyname', null, array('class'=>'validate','required')) !!}
+          {!! Form::text('companyname', null, array('class'=>'validate','required'))!!}
           {!! Form::label('Company Name') !!}
         </div>
       </div>
@@ -65,15 +65,15 @@
         </div>
         <div class="input-field col s6">
           <input id="phonenumber" type="text" name="phonenumber" class="validate" required>
-          <label for="pnumber">Phone Number</label>
+          <label for="phonenumber">Phone Number</label>
         </div>
         <div class="input-field col s6">
           <input id="password" type="password" name="password" class="validate" required>
           <label for="password">Password</label>
         </div>
         <div class="input-field col s6">
-          <input id="password2" type="password" name="password2" class="validate" required>
-          <label for="password2">Confirm Password</label>
+          <input id="confirm_password" type="password" name="confirm_password" class="validate" required>
+          <label for="confirm_password">Confirm Password</label>
         </div>
       </div>
       <div class="row">
