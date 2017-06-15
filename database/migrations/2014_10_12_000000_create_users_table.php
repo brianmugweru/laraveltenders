@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('companyname',170)->unique();
             $table->string('address');
             $table->string('city');
-            $table->string('province');
+            $table->string('county');
             $table->string('country');
             $table->boolean('isActivated')->default(false);
             $table->string('activationCode');
