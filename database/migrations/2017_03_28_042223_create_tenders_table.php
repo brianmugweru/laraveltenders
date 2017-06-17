@@ -19,6 +19,8 @@ class CreateTendersTable extends Migration
             $table->string('bid_name');
             $table->string('description');
             $table->dateTime('closing_on');
+            $table->string('tender_file');
+            $table->boolean('isBid')->default(false);
             $table->timestamps();
         });
     }

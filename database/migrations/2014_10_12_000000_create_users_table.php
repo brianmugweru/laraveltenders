@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email',170)->unique();
             $table->string('password');
             $table->string('phonenumber');
+            $table->boolean('isAdmin')->default(false);
             $table->string('companyname',170)->unique();
             $table->string('address');
             $table->string('city');
